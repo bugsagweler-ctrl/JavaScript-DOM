@@ -1,0 +1,138 @@
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0d0d1a, #1a1a2e);
+    color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.7), 0 0 20px rgba(255, 215, 0, 0.3);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+
+#spellArea {
+    background: rgba(30, 30, 63, 0.85);
+    border-radius: 16px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    font-size: 1.3rem;
+    transition: background-color 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 20px rgba(155, 48, 255, 0.4), 0 0 40px rgba(0, 255, 255, 0.2);
+    position: relative;
+}
+
+#spellArea::after {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 2px);
+    background-size: 20px 20px;
+    pointer-events: none;
+    animation: sparkle 2s linear infinite;
+    border-radius: 16px;
+}
+
+@keyframes sparkle {
+    0% {background-position: 0 0;}
+    100% {background-position: 20px 20px;}
+}
+
+
+#spellArea.pulse {
+    animation: pulse 0.5s ease-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 20px rgba(155, 48, 255, 0.4);}
+    50% { transform: scale(1.05); box-shadow: 0 0 35px rgba(155, 48, 255, 0.7);}
+    100% { transform: scale(1); box-shadow: 0 0 20px rgba(155, 48, 255, 0.4);}
+}
+
+
+button {
+    border: none;
+    border-radius: 25px;
+    padding: 12px 28px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.3s, background 0.3s;
+    margin: 0.5rem;
+    color: #fff;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+button:hover::after {
+    opacity: 1;
+}
+
+
+#generateButton {
+    background: linear-gradient(135deg, #6a0dad, #9b30ff);
+    box-shadow: 0 4px 15px rgba(155, 48, 255, 0.5);
+}
+
+#generateButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(155, 48, 255, 0.8);
+}
+
+
+#resetButton {
+    background: linear-gradient(135deg, #ff4d4d, #ff99cc);
+    box-shadow: 0 4px 15px rgba(255, 77, 77, 0.5);
+}
+
+#resetButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(255, 77, 77, 0.8);
+}
+
+
+#ingredientsList {
+    display: none;
+}
+
+
+.spell-text {
+    font-size: 1.4rem;
+    color: #fff;
+    font-weight: 500;
+    text-shadow: 0 0 10px #fff, 0 0 20px #ffb6f1;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
